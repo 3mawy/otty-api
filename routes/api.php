@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['prefix' => 'cat-posts'], function ($router) {
-    Route::get('/profile', [CatPostController::class, 'index']);
-
+    Route::get('/', [CatPostController::class, 'index']);
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
