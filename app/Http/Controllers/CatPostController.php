@@ -20,7 +20,6 @@ class CatPostController extends Controller
         $catPosts = CatPost::all();
 
         return response()->json([
-            'status' => true,
             'posts' => $catPosts
         ]);
     }
@@ -33,13 +32,24 @@ class CatPostController extends Controller
      */
     public function store(StoreCatPostRequest $request): JsonResponse
     {
-        $catPosts = CatPost::create($request->all());
-
-        return response()->json([
-            'status' => true,
-            'message' => "Post Created successfully!",
-            'post' => $catPosts
-        ], 200);
+//        $validator = Validator::make($request->all(), [
+//            'name' => 'required|string',
+//            'description' => 'required|string',
+//            'type' => 'required|integer',
+//            'genres' => 'required|array',
+//            'images.*' => 'exists:genres,id',
+//
+//        ]);
+//        $catPost = new CatPost;
+//        $catPost->name = $request->name;
+//
+//        $catPost->save();
+//        $catPost->genres()->attach($request->genres);
+//        return response()->json([
+//            'status' => true,
+//            'message' => "Post Created successfully!",
+//            'post' => $catPosts
+//        ], 200);
     }
 
     /**
